@@ -18,4 +18,7 @@ public:
     void addStudent(Student* student);
     void removeStudent(Student student);
     void viewStudents();
+    int getCourseCode() {
+        return courseCode;
+    }
 };

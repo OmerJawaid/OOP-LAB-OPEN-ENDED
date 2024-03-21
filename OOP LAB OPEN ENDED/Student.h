@@ -20,4 +20,10 @@ public:
     std::string getStudentName() {
         return name;
     }
+    int getStudentID() {
+        return studentID;
+    }
+    string getEmail() {
+		return email;
+    }
 };
