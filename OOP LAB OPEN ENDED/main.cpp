@@ -130,10 +130,6 @@ int main()
     course1.viewStudents();
         cout<< endl;
 
-    cout << "Students enrolled in " << course1.getCourseName() << " after dropping a course:" << endl;
-    course1.viewStudents();
-        cout<< endl;
-
 
     cout<<"Courses taught by " << teacher1.getTeacherName() << ":"<< endl;
     teacher1.viewCourses();
