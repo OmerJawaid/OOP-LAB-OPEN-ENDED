@@ -21,24 +21,6 @@ public:
     void removeStudent(Student student);
     void viewStudents();
 };
-void Course::addStudent(Student student) {
-    studentEnrolled.push_back(student);
-}
-
-void Course::removeStudent(Student student) {
-    for (auto it = studentEnrolled.begin(); it != studentEnrolled.end(); ++it) {
-        if (it->getStudentName() == student.getStudentName()) {
-            studentEnrolled.erase(it);
-            return;
-        }
-    }
-    cout << "Student not found" << endl;
-}
-void Course::viewStudents() {
-    for (int i = 0; i < studentEnrolled.size(); i++) {
-        cout << studentEnrolled[i].getStudentName() << endl;
-    }
-}
 
 class Teacher {
 private:
@@ -90,7 +72,24 @@ public:
         return name;
     }
 };
+void Course::addStudent(Student student) {
+    studentEnrolled.push_back(student);
+}
 
+void Course::removeStudent(Student student) {
+    for (auto it = studentEnrolled.begin(); it != studentEnrolled.end(); ++it) {
+        if (it->getStudentName() == student.getStudentName()) {
+            studentEnrolled.erase(it);
+            return;
+        }
+    }
+    cout << "Student not found" << endl;
+}
+void Course::viewStudents() {
+    for (int i = 0; i < studentEnrolled.size(); i++) {
+        cout << studentEnrolled[i].getStudentName() << endl;
+    }
+}
 void Student::dropCourse(Course course) {
     for (auto it = coursesEnrolled.begin(); it != coursesEnrolled.end(); ++it) {
         if (it->getCourseName() == course.getCourseName()) {
