@@ -26,6 +26,25 @@ void Course::viewStudents() {
         cout << studentEnrolled[i].getStudentName() << endl;
     }
 }
+
+class Student {
+private:
+    int studentID;
+    string name, email;
+    vector<Course> coursesEnrolled;
+
+public:
+    Student(int ID, string na, string mail) : studentID(ID), name(na), email(mail) {
+        cout << "Student constructor called" << endl;
+    }
+    void enrollCourse(Course course) {
+        coursesEnrolled.push_back(course);
+    }
+    void dropCourse(Course course);
+    void viewCourses();
+    string getStudentName() {
+        return name;
+    }
 class Teacher {
 private:
     int teacherID;
