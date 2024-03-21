@@ -26,3 +26,32 @@ void Course::viewStudents() {
         cout << studentEnrolled[i].getStudentName() << endl;
     }
 }
+class Teacher {
+private:
+    int teacherID;
+    string name, email;
+    vector<Course> coursesAssigned;
+
+public:
+    Teacher(string n, int ID, string em) : name(n), teacherID(ID), email(em) {}
+    string getTeacherName() {
+        return name;
+    }
+    void assignCourses(Course course) {
+        coursesAssigned.push_back(course);
+    }
+    void removeCourse(Course course) {
+        for (auto it = coursesAssigned.begin(); it != coursesAssigned.end(); ++it) {
+            if (it->getCourseName() == course.getCourseName()) {
+                coursesAssigned.erase(it);
+                return;
+            }
+        }
+        cout << "Course not found" << endl;
+    }
+    void viewCourses() {
+        for (int i = 0; i < coursesAssigned.size(); i++) {
+            cout << coursesAssigned[i].getCourseName() << endl;
+        }
+    }
+};
