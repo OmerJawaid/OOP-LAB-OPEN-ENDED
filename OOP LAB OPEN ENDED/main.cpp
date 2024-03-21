@@ -60,9 +60,7 @@ private:
     vector<Course> coursesEnrolled;
 
 public:
-    Student(int ID, string na, string mail) : studentID(ID), name(na), email(mail) {
-        cout << "Student constructor called" << endl;
-    }
+    Student(int ID, string na, string mail) : studentID(ID), name(na), email(mail) {}
     void enrollCourse(Course course) {
         coursesEnrolled.push_back(course);
     }
@@ -104,5 +102,39 @@ void Student::viewCourses() {
     for (int i = 0; i < coursesEnrolled.size(); i++) {
         cout << coursesEnrolled[i].getCourseName() << endl;
     }
+}
+
+int main()
+{
+    Student student1(1 , "Ahmad" ,"ahmadiftikhar200536@gmail.com" );
+    Student student2(2, "Omer","omerjawaid0@gmail.com");
+
+    Course course1("OOP" , 6259);
+    Course course2("DS", 6260);
+
+    Teacher teacher1("DR Waleed Ahmad", 1234, "mwaleed.buic@bahria.edu.pk");
+
+    course1.addStudent(student1);
+    course1.addStudent(student2);
+
+    course2.addStudent(student1);
+
+    teacher1.assignCourses(course1);
+    teacher1.assignCourses(course2);
+
+    cout<<"Courses taught by " << teacher1.getTeacherName() << ":"<< endl;
+    teacher1.viewCourses();
+    cout<<endl;
+
+    cout<<"Student enroll in " << course1.getCourseName() <<":"<< endl;
+    course1.viewStudents();
+    cout<< endl;
+
+    cout<<"Student enroll in " << course2.getCourseName() <<":"<< endl;
+    course2.viewStudents();
+    cout<< endl;
+
+    return 0;
+
 }
 
