@@ -3,13 +3,15 @@
 #include <string>
 #include <vector>
 
-// Forward declaration
-class Course;
+
+class Course; 
+
 
 class Teacher {
 private:
     int teacherID;
     std::string name, email;
+
     std::vector<Course*> coursesAssigned; // Vector of Course pointers
 
 public:
@@ -20,4 +22,5 @@ public:
     void viewCourses() const; // Function to view courses assigned to the teacher
     int getTeacherID() const; // Function to get teacher ID
     std::string getEmail() const; // Function to get teacher email
+
 };
