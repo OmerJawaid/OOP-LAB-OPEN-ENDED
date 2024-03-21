@@ -21,30 +21,8 @@ public:
     void removeStudent(Student student);
     void viewStudents();
 };
-void Course::viewStudents() {
-    for (int i = 0; i < studentEnrolled.size(); i++) {
-        cout << studentEnrolled[i].getStudentName() << endl;
-    }
-}
 
-class Student {
-private:
-    int studentID;
-    string name, email;
-    vector<Course> coursesEnrolled;
 
-public:
-    Student(int ID, string na, string mail) : studentID(ID), name(na), email(mail) {
-        cout << "Student constructor called" << endl;
-    }
-    void enrollCourse(Course course) {
-        coursesEnrolled.push_back(course);
-    }
-    void dropCourse(Course course);
-    void viewCourses();
-    string getStudentName() {
-        return name;
-    }
 class Teacher {
 private:
     int teacherID;
@@ -74,3 +52,57 @@ public:
         }
     }
 };
+
+
+class Student {
+private:
+    int studentID;
+    string name, email;
+    vector<Course> coursesEnrolled;
+
+public:
+    Student(int ID, string na, string mail) : studentID(ID), name(na), email(mail) {
+        cout << "Student constructor called" << endl;
+    }
+    void enrollCourse(Course course) {
+        coursesEnrolled.push_back(course);
+    }
+    void dropCourse(Course course);
+    void viewCourses();
+    string getStudentName() {
+        return name;
+    }
+};
+void Course::addStudent(Student student) {
+    studentEnrolled.push_back(student);
+}
+
+void Course::removeStudent(Student student) {
+    for (auto it = studentEnrolled.begin(); it != studentEnrolled.end(); ++it) {
+        if (it->getStudentName() == student.getStudentName()) {
+            studentEnrolled.erase(it);
+            return;
+        }
+    }
+    cout << "Student not found" << endl;
+}
+void Course::viewStudents() {
+    for (int i = 0; i < studentEnrolled.size(); i++) {
+        cout << studentEnrolled[i].getStudentName() << endl;
+    }
+}
+void Student::dropCourse(Course course) {
+    for (auto it = coursesEnrolled.begin(); it != coursesEnrolled.end(); ++it) {
+        if (it->getCourseName() == course.getCourseName()) {
+            coursesEnrolled.erase(it);
+            return;
+        }
+    }
+    cout << "Course not found" << endl;
+}
+
+void Student::viewCourses() {
+    for (int i = 0; i < coursesEnrolled.size(); i++) {
+        cout << coursesEnrolled[i].getCourseName() << endl;
+    }
+}
