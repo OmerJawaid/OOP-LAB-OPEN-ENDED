@@ -106,21 +106,17 @@ void Student::viewCourses() {
 
 int main()
 {
-    Student student1(1 , "Ahmad" ,"ahmadiftikhar200536@gmail.com" );
-    Student student2(2, "Omer","omerjawaid0@gmail.com");
+    int main() {
+    cout << "Courses taught by " << teacher1.getTeacherName() << ":" << endl;
+    teacher1.viewCourses();
 
-    Course course1("OOP" , 6259);
-    Course course2("DS", 6260);
+    cout << "Students enrolled in " << course1.getCourseName() << ":" << endl;
+    course1.viewStudents();
 
-    Teacher teacher1("DR Waleed Ahmad", 1234, "mwaleed.buic@bahria.edu.pk");
+    student1.dropCourse(course1);
 
-    course1.addStudent(student1);
-    course1.addStudent(student2);
-
-    course2.addStudent(student1);
-
-    teacher1.assignCourses(course1);
-    teacher1.assignCourses(course2);
+    cout << "Students enrolled in " << course1.getCourseName() << " after dropping a course:" << endl;
+    course1.viewStudents();
 
     cout<<"Courses taught by " << teacher1.getTeacherName() << ":"<< endl;
     teacher1.viewCourses();
@@ -135,6 +131,4 @@ int main()
     cout<< endl;
 
     return 0;
-
-}
-
+    }
