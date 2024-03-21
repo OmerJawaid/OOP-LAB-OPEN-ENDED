@@ -1,20 +1,42 @@
+// #pragma once
+
+// #include <string>
+// #include <vector>
+
+// class Course; 
+
+// class Teacher {
+// private:
+//     int teacherID;
+//     std::string name, email;
+//     std::vector<Course*> coursesAssigned; 
+
+// public:
+//     Teacher(std::string n, int ID, std::string em);
+//     std::string getTeacherName() const; 
+//     void assignCourses(Course* course); 
+//     void removeCourse(Course* course); 
+//     void viewCourses() const; 
+// };
+
 #pragma once
 
 #include <string>
 #include <vector>
 
-class Course; // Forward declaration
+class Course; 
 
 class Teacher {
 private:
     int teacherID;
     std::string name, email;
-    std::vector<Course*> coursesAssigned; // Update: Changed to vector of Course pointers
+    std::vector<Course*> coursesAssigned; 
 
 public:
     Teacher(std::string n, int ID, std::string em);
-    std::string getTeacherName() const; // Update: Added const
-    void assignCourses(Course* course); // Update: Passed Course pointer
-    void removeCourse(Course* course); // Update: Passed Course pointer
-    void viewCourses() const; // Update: Added const
+    std::string getTeacherName() const; 
+    void assignCourses(Course* course); 
+    void removeCourse(Course* course); 
+    void viewCourses() const; 
 };
+
