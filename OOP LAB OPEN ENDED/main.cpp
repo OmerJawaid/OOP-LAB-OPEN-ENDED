@@ -106,3 +106,18 @@ void Student::viewCourses() {
     }
 }
 
+int main() {
+    cout << "Courses taught by " << teacher1.getTeacherName() << ":" << endl;
+    teacher1.viewCourses();
+
+    cout << "Students enrolled in " << course1.getCourseName() << ":" << endl;
+    course1.viewStudents();
+
+
+    student1.dropCourse(course1);
+
+    cout << "Students enrolled in " << course1.getCourseName() << " after dropping a course:" << endl;
+    course1.viewStudents();
+
+    return 0;
+}
