@@ -60,9 +60,7 @@ private:
     vector<Course> coursesEnrolled;
 
 public:
-    Student(int ID, string na, string mail) : studentID(ID), name(na), email(mail) {
-        cout << "Student constructor called" << endl;
-    }
+    Student(int ID, string na, string mail) : studentID(ID), name(na), email(mail) {}
     void enrollCourse(Course course) {
         coursesEnrolled.push_back(course);
     }
@@ -106,18 +104,31 @@ void Student::viewCourses() {
     }
 }
 
-int main() {
+int main()
+{
+    int main() {
     cout << "Courses taught by " << teacher1.getTeacherName() << ":" << endl;
     teacher1.viewCourses();
 
     cout << "Students enrolled in " << course1.getCourseName() << ":" << endl;
     course1.viewStudents();
 
-
     student1.dropCourse(course1);
 
     cout << "Students enrolled in " << course1.getCourseName() << " after dropping a course:" << endl;
     course1.viewStudents();
 
+    cout<<"Courses taught by " << teacher1.getTeacherName() << ":"<< endl;
+    teacher1.viewCourses();
+    cout<<endl;
+
+    cout<<"Student enroll in " << course1.getCourseName() <<":"<< endl;
+    course1.viewStudents();
+    cout<< endl;
+
+    cout<<"Student enroll in " << course2.getCourseName() <<":"<< endl;
+    course2.viewStudents();
+    cout<< endl;
+
     return 0;
-}
+    }
